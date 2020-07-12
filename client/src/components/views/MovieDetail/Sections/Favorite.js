@@ -4,10 +4,10 @@ import {Button} from 'antd'
 
 
 function Favorite(props) {
-
+    
     const movieId = props.movieId
     const userFrom = props.userFrom
-    const movieTile = props.movieInfo.title
+    const movieTitle = props.movieInfo.title
     const moviePost = props.movieInfo.backdrop_path
     const movieRunTime = props.movieInfo.runtime
 
@@ -17,13 +17,12 @@ function Favorite(props) {
     let variables = {
         userFrom: userFrom,
         movieId: movieId,
-        movieTile: movieTile,
+        movieTitle: movieTitle,
         moviePost: moviePost,
         movieRunTime: movieRunTime
     }
 
     useEffect(() => {
-
 
         Axios.post('/api/favorite/favoriteNumber', variables)
             .then(res => {
