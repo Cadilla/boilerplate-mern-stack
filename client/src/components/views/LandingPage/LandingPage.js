@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { FaCode } from "react-icons/fa";
-import { API_URL, API_KEY, IMAGE_BASE_URL } from '../../Config';
+import { API_URL, API_KEY, IMAGE_BASE_URL, IMAGE_SIZE } from '../../Config';
 import MainImage from './Sections/MainImage';
 import GridCard from '../commons/GridCards'
 import {Row} from 'antd'
@@ -38,7 +38,7 @@ function LandingPage() {
 
             {MainMoveImage &&
                 <MainImage 
-                    image={`${IMAGE_BASE_URL}w1280${MainMoveImage.backdrop_path}`}
+                    image={`${IMAGE_BASE_URL}${IMAGE_SIZE}${MainMoveImage.backdrop_path}`}
                     title={MainMoveImage.original_title}
                     text={MainMoveImage.overview}
                 />
@@ -56,6 +56,7 @@ function LandingPage() {
                 {Movies && Movies.map((movie, index) => (
                     <React.Fragment key={index}>             
                         <GridCard
+                            landingPage
                             image={movie.poster_path ?
                                 `${IMAGE_BASE_URL}w500${movie.poster_path}`
                                 : null}

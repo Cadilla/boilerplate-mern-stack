@@ -1,6 +1,7 @@
 import React from 'react';
 
 function MainImage(props) {
+    console.log('test',props)
     return (
         <div style={{
                 background:
